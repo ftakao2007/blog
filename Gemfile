@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'debase', '0.2.2.beta8'
 gem 'ruby-debug-ide', '0.6.1.beta2'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
