@@ -8,6 +8,17 @@
   <%= @article.text %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <br>
+  　<% if @article.image? %>
+  　　<%= image_tag @article.image.thumb.url %>
+  　<% else %>
+  　　<%= image_tag 'noimage.gif' %>
+  　<% end %>
+</p>
+
+
 <h2>Comments</h2>
 <%= render @article.comments %>
 
