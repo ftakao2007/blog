@@ -22,7 +22,9 @@
 
     <p>
       <%= f.label :image %>
+      <%= image_tag @article.image.thumb.url if @article.image? %><br>
       <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
     </p>
 
     <p>
