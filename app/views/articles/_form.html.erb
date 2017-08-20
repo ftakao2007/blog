@@ -20,6 +20,18 @@
       <%= f.text_area :text %>
     </p>
 
+    <%= fields_for(@comment) do |f2|  %>
+        <p>
+        <%= f2.label :commenter %><br>
+        <%= f2.text_field :commenter %><br>
+        </p>
+
+        <p>
+        <%= f2.label :body %><br>
+        <%= f2.text_field :body %><br>
+        </p>
+    <% end %>
+
     <p>
       <%= f.submit %>
     </p>
