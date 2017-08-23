@@ -30,15 +30,19 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @comment = @article.comment
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = Article.new(article_params)
+    @comment = Comment.new(comment_params)
 
-    if @article.update(article_params)
+    Article.transaction do
+      @comment.article = @article
+      @article.save!
+      @comment.save!
+      flash[:notice] = "記事を更新しました。"
       redirect_to @article
-    else
-      render 'edit'
     end
   end
 
